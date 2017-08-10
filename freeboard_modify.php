@@ -5,50 +5,37 @@
 		<meta charset="utf-8" />
 		<title>BoB Ent.</title>
 		<?php
-			if (!isset($_GET['no'])) {
-				?>
-				<html>
-					<head>
-						<meta charset="utf-8">
-					</head>
-					<body>
-						<script>
-							alert('유효하지 않은 요청입니다.');
-							history.go(-1);
-						</script>
-					</body>
-		</html>
-				<?php
-					exit();
-			}
-			include_once('./include/db_conn.php');
-			//include_once('./include/no_not_logined.php');
-			include_once('./templates/dependencies.php');
-		$sql="SELECT `item_no`, `title`, `hit`, `update_date`, `writer_id`, `contents` FROM freeboard_item WHERE `item_no`=".$_GET['no'];
-		//echo htmlspecialchars($sql);
-		$result=mysql_query($sql);
-		$row = mysql_fetch_array($result);
-		// echo $row['item_no'];
-		if (!$result && !$row) {
+		if(!isset($_GET['no'])) {
 			?>
-				<html>
-					<head>
-						<meta charset="utf-8">
-					</head>
-					<body>
-						<script>
-							// alert('유효하지 않은 글번호입니다.');
-							// history.go(-1);
-						</script>
-					</body>
-				</html>
+			<html>
+				<meta charset="utf-8">
+				<script>
+					alert('잘못된 접근입니다.');
+					history.go(-1);
+				</script>
+		</html>
 			<?php
 			exit();
 		}
-		
-		$hit_up_sql = 'UPDATE freeboard_item SET hit = hit + 1 WHERE `item_no`='.$_GET['no'];
-		mysql_query($hit_up_sql);
-	
+		include_once('./include/db_conn.php');
+		$sql = "SELECT `item_no`, `title`, `hit`, `update_date`, `writer_id`, `contents` FROM freeboard_item WHERE `item_no`=".$_GET['no'];
+		$result = mysql_query($sql);
+		$row = mysql_fetch_array($result);
+		if ($_SESSION['id'] != $row['writer_id'] && $_SESSION['id'] != 'admin') {
+			?>
+			<html>
+				<meta charset="utf-8">
+				<script>
+					alert('글을 작성한 사람만 수정할 수 있습니다.');
+					history.go(-1);
+				</script>
+		</html>
+			<?php
+			exit();
+		}
+			
+			// include_once('./include/no_not_logined.php');
+			include_once('./templates/dependencies.php');
 		?>
 		
 	</head>
@@ -180,10 +167,10 @@
 
 						<div class="page-header">
 							<h1>
-								게시글 조회
+								게시글 수정
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									자유게시판의 게시글을 조회합니다.
+									자유게시판의 게시글을 수정합니다.
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -191,40 +178,65 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<div class="main-container ace-save-state container">
-									<input type="hidden" id="item_no" data-no="<?= $row['item_no'] ?>">
-									<h2>
-										[#<?= $row['item_no'] ?>] <?= $row['title'] ?>
-									</h2>
-									<h4>
-										작성자 <span class="badge badge-warning"><?= $row['writer_id'] ?></span><span class="pull-right">최근 수정일 <?= $row['update_date'] ?> </span>
-									</h4>
-									<hr>
-									<div class="widget-box" style="overflow: auto;">
-											<div class="widget-header widget-header-flat">
-												<h4 class="widget-title">내용</h4>
-											</div>
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="item_no"> 글 번호</label>
 
-											<div class="widget-body">
-												<div class="widget-main">
-													<?= $row['contents'] ?>
-												</div>
+										<div class="col-sm-9">
+											<input readonly type="text" id="item_no" placeholder="글 번호" class="col-xs-10 col-sm-5" value="<?= $row['item_no'] ?>">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="update_date">최근 수정 일시</label>
+
+										<div class="col-sm-9">
+											<input readonly type="text" id="update_date" placeholder="최근 수정 일시" class="col-xs-10 col-sm-5" value="<?= $row['update_date'] ?>">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="title"> 글 제목 </label>
+
+										<div class="col-sm-9">
+											<input type="text" id="title" placeholder="제목" class="col-xs-10 col-sm-5" value="<?= $row['title'] ?>">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 내용 </label>
+
+										<div class="col-sm-9">
+											<div id="freeboard_contents">
+												
 											</div>
 										</div>
-										<hr>
-										<button class="btn" onclick="history.go(-1);">
-											목록
-										</button>
-										<a href="./freeboard_modify.php?no=<?= $row['item_no'] ?>">
-											<button class="btn btn-warning">
-												수정
+									</div>
+
+									<div class="space-4"></div>
+
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<div class="btn btn-warning" id="cancel_write">
+												<i class="fa fa-backward" aria-hidden="true"></i>
+												취소
+											</div>
+											<div class="btn btn-danger" id="reset_write">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												되돌리기
+											</div>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn btn-success" type="button" id="save_btn">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												저장
 											</button>
-										</a>
-										<button class="btn btn-danger" id="btn_del">
-											삭제
-										</button>
-								</div>
-								
+											
+										</div>
+									</div>
+
+									<hr>
+	
+								</form>
 
 							</div><!-- /.col -->
 						</div><!-- /.row -->
@@ -484,20 +496,52 @@
 					focus: false,               // set focus to editable area after initializing summernote
 					lang: 'ko-KR'
 				});
-				
-				$('#btn_del').click(function() {
-					var accept = window.confirm('정말로 게시글을 삭제하시겠습니까?');
-					if (accept === true) {
-						var item_no = $('#item_no').data('no');
-						post_to_url('./freeboard_delete_check.php', {
-							'no': item_no
-						}, 'GET');
-					}
+			
+				$('#save_btn').click(function(e) {
+					var title = $('#title').val();
+					var contents = $('#freeboard_contents').summernote('code');
+					console.log(title);
+					console.log(contents);
+					
+					post_to_url('./freeboard_modify_check.php', {
+						no: window.cached.no,
+						title: title,
+						contents: contents
+					}, 'POST');
+					
 				});
 			
-			
 			});
-		
+			
+			$('#cancel_write').click(function(e) {
+				var accept = window.confirm('정말로 수정하던 글을 포기하고 이전 페이지로 넘어가시겠습니까?');
+				if (accept === true) {
+					location.href='./freeboard.php';
+					// history.go(-1);
+				} else {
+					e.stopPropagation();
+					return;
+				}
+			})
+			
+			window.cached = {
+				no: <?= $row['item_no'] ?>,
+				title: '<?= $row['title'] ?>',
+				contents: '<?= $row['contents'] ?>'
+			};
+			
+			$('#freeboard_contents').summernote('code', window.cached.contents);
+
+			$('#reset_write').click(function(e) {
+				var accept = window.confirm('정말로 수정한 사항을 다시 되돌리시겠습니까?');
+				if (accept) {
+					$('#title').val(window.cached.title);
+					$('#freeboard_contents').summernote('code', window.cached.contents);
+				} else {
+					e.stopPropagation();
+					return;
+				}		
+			});
 		
 		</script>
 	</body>
