@@ -5,6 +5,7 @@
 - apache2
 - php5
 - mysql
+- phpmyadmin
 ```
 sudo apt-get update
 sudo apt-get install -y apache2
@@ -12,6 +13,8 @@ sudo apt-get install php5 php5-common
 sudo apt-get install -y mysql-server mysql-client
 sudo apt-get install -y libapache2-mod-php5
 sudo apt-get install php5-mysql
+sudo add-apt-repository ppa:nijel/phpmyadmin
+sudo apt-get update sudo apt-get install phpmyadmin 
 ```
 
 ## 기타 설정 시 유용한 커맨드들
@@ -37,3 +40,10 @@ git config --global user.name "Einstrasse"
 ## 디자인 템플릿
 https://github.com/bopoda/ace    
 http://ace.jeka.by/    
+
+## 참고 사이트
+http://nomis.tistory.com/140
+
+## 데이터베이스 스키마
+- site_user 테이블
+
