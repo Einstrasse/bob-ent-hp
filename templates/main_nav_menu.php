@@ -34,7 +34,7 @@
 					</li>
 
 					<li class="hover <?php
-							   if ($current_file_name == 'freeboard.php' || $current_file_name == 'freeboard_write.php') {
+							   if ($current_file_name == 'freeboard.php' || $current_file_name == 'freeboard_write.php' || $current_file_name == 'freeboard_view.php') {
 								   echo "open active";
 							   }
 							   ?>">
