@@ -30,5 +30,13 @@
 		array_push($return_arr,$row_array);
 	}
 
-	echo json_encode($return_arr, JSON_UNESCAPED_UNICODE);
+	$cnt_sql="SELECT COUNT(item_no) FROM freeboard_item";
+	$result = mysql_query($cnt_sql);
+	$row = mysql_fetch_array($result);
+	$num_elem = $row[0];
+
+	$obj = array('cnt' => $num_elem, 'data' => $return_arr);
+
+	echo json_encode($obj, JSON_UNESCAPED_UNICODE);
+	//echo json_encode($return_arr, JSON_UNESCAPED_UNICODE);
 ?>

@@ -22,7 +22,7 @@
 					exit();
 			}
 			include_once('./include/db_conn.php');
-			include_once('./include/no_not_logined.php');
+			//include_once('./include/no_not_logined.php');
 			include_once('./templates/dependencies.php');
 		$sql="SELECT `item_no`, `title`, `hit`, `update_date`, `writer_id`, `contents` FROM freeboard_item WHERE `item_no`=".$_GET['no'];
 		//echo htmlspecialchars($sql);
@@ -45,6 +45,10 @@
 			<?php
 			exit();
 		}
+		
+		$hit_up_sql = 'UPDATE freeboard_item SET hit = hit + 1 WHERE `item_no`='.$_GET['no'];
+		mysql_query($hit_up_sql);
+	
 		?>
 		
 	</head>
