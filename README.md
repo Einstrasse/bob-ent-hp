@@ -27,3 +27,13 @@ sudo a2enmod php5
 ```
 sudo a2dismod php7.1
 ```
+git 설정
+```
+git config --global push.default matching
+git config --global user.email "hg9587@naver.com"
+git config --global user.name "Einstrasse"
+```
+
+## 디자인 템플릿
+https://github.com/bopoda/ace    
+http://ace.jeka.by/    
