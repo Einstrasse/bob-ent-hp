@@ -157,164 +157,6 @@
 						</a>
 					</div>
 					
-<!-- 					
-					<div class="page-content">
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
-
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; Choose Skin</span>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-								</div>
-
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="page-header">
-							<h1>
-								Top Menu Style
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									top menu &amp; navigation
-								</small>
-							</h1>
-						</div>
-
-						<div class="row">
-							<div class="col-xs-12">
-		
-								<div class="alert alert-info visible-sm visible-xs">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-									Please note that
-									<span class="blue bolder">top menu style</span>
-									is visible only in devices larger than
-									<span class="blue bolder">991px</span>
-									which you can change using CSS builder tool.
-								</div>
-
-								<div class="well well-sm visible-sm visible-xs">
-									Top menu can become any of the 3 mobile view menu styles:
-									<em>default</em>
-,
-									<em>collapsible</em>
-									or
-									<em>minimized</em>.
-								</div>
-
-								<div class="hidden-sm hidden-xs">
-									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
-										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
-										Collapse/Expand Menu
-									</button>
-								</div>
-
-								<div class="center">
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-								</div>
-
-								
-							</div>
-						</div>
-					</div>
-					 -->
-					
 				</div>
 			</div><!-- /.main-content -->
 
@@ -404,7 +246,72 @@
 				$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
 			 });
 			
-			
+				$.get('./freeboard_list_ajax.php', {
+					skip: 0,
+					limit: 10
+				}, function(res) {
+					console.log(res);
+					var total_dom = [];
+					res.map(function(item) {
+
+						var row = [
+							'<tr>',
+								'<td>', item.item_no, '</td>',
+								'<td>', '<a href="', '#', '">',
+									item.title, '</a>',
+								'</td>',
+								'<td class="hidden-480">', item.hit, '</td>',
+								'<td>', item.update_date, '</td>',
+								'<td class="hidden-480">', '<span class="label label-warning">',
+									item.writer_id, '</span>', '</td>',
+								'<td>',
+									'<div class="hidden-sm hidden-xs action-buttons">',
+										'<a class="green" href="#">',
+											'<i class="ace-icon fa fa-pencil bigger-130"></i>',
+										'</a>',
+										'<a class="red" href="#">',
+											'<i class="ace-icon fa fa-trash-o bigger-130"></i>',
+										'</a>',
+									'</div>',
+									'<div class="hidden-md hidden-lg">',
+										'<div class="inline pos-rel">',
+											'<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">',
+												'<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>',
+											'</button>',
+											'<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">',
+												'<li>',
+													'<a href="#" class="tooltip-info" data-rel="tooltip" title="View">',
+														'<span class="blue">',
+															'<i class="ace-icon fa fa-search-plus bigger-120"></i>',
+														'</span>',
+													'</a>',
+												'</li>',
+												'<li>',
+													'<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">',
+														'<span class="green">',
+															'<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>',
+														'</span>',
+													'</a>',
+												'</li>',
+
+												'<li>',
+													'<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">',
+														'<span class="red">',
+															'<i class="ace-icon fa fa-trash-o bigger-120"></i>',
+														'</span>',
+													'</a>',
+												'</li>',
+											'</ul>',
+										'</div>',
+									'</div>',
+								'</td>',
+							'</tr>'
+						].join('');
+						total_dom.push(row);
+						
+					});
+					$('#freeboard-table').find('tbody').html(total_dom.join(''));
+				});
 			});
 		</script>
 	</body>
