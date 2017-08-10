@@ -64,7 +64,7 @@
  -->
 					
 					<li class="hover <?php
-							   if ($current_file_name == 'gallery.php') {
+							   if ($current_file_name == 'gallery.php' || $current_file_name == 'gallery_upload.php') {
 								   echo "open active";
 							   }
 							   ?>">

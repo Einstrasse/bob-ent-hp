@@ -67,7 +67,7 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-스크린샷 겔러리
+						스크린샷 업로드
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
 							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
@@ -83,7 +83,7 @@
 												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
 												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
 												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select><div class="dropdown dropdown-colorpicker">		<a data-toggle="dropdown" class="dropdown-toggle"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
+											</select><div class="dropdown dropdown-colorpicker">		<a data-toggle="dropdown" class="dropdown-toggle"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div><div class="dropdown dropdown-colorpicker">		<a data-toggle="dropdown" class="dropdown-toggle"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
 										</div>
 										<span>&nbsp; Choose Skin</span>
 									</div>
@@ -138,47 +138,91 @@
 
 						<div class="page-header">
 							<h1>
-								스크린샷 갤러리
+								새 스크린샷 업로드
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									유저가 업로드한 게임 스크린샷 갤러리입니다.
+									새로운 스크린샷을 업로드합니다.
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">
 							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div>
-									<ul class="ace-thumbnails clearfix">
-										<li>
-											<a href="assets/images/gallery/image-3.jpg" data-rel="colorbox" class="cboxElement">
-												<img width="150" height="150" alt="150x150" src="assets/images/gallery/thumb-3.jpg">
-												<div class="text">
-													<div class="inner">스크린샷</div>
-												</div>
-											</a>
+							
+								<div class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="title"> 글 제목 </label>
 
-											<div class="tools tools-bottom">
-												<a href="#">
-													<i class="ace-icon fa fa-link"></i>
+										<div class="col-sm-9">
+											<input type="text" id="title" placeholder="제목" class="col-xs-10 col-sm-5">
+										</div>
+									</div>
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4 class="widget-title">Custom File Input</h4>
+
+											<div class="widget-toolbar">
+												<a href="#" data-action="collapse">
+													<i class="ace-icon fa fa-chevron-up"></i>
 												</a>
 
-												<a href="#">
-													<i class="ace-icon fa fa-paperclip"></i>
-												</a>
-
-												<a href="#">
-													<i class="ace-icon fa fa-pencil"></i>
-												</a>
-
-												<a href="#">
-													<i class="ace-icon fa fa-times red"></i>
+												<a href="#" data-action="close">
+													<i class="ace-icon fa fa-times"></i>
 												</a>
 											</div>
-										</li>
-									</ul>
-								</div><!-- PAGE CONTENT ENDS -->
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<!-- <div class="form-group">
+													<div class="col-xs-12">
+														<input type="file" id="id-input-file-2" />
+													</div>
+												</div> -->
+
+												<div class="form-group">
+													<div class="col-xs-12">
+														<input multiple="" type="file" id="gallery_file_upload" />
+													</div>
+												</div>
+
+												<label>
+													<input type="checkbox" name="file-format" id="id-file-format" class="ace" />
+													<span class="lbl"> Allow only images</span>
+												</label>
+											</div>
+										</div>
+									</div>
+
+								
+
+									<div class="space-4"></div>
+
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<div class="btn btn-warning" id="cancel_write">
+												<i class="fa fa-backward" aria-hidden="true"></i>
+												취소
+											</div>
+											<div class="btn btn-danger" id="reset_write">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												초기화
+											</div>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn btn-success" type="button" id="save_btn">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												저장
+											</button>
+											
+										</div>
+									</div>
+
+									<hr>
+	
+								</div>
+
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div>
@@ -203,7 +247,7 @@
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<!-- page specific plugin scripts -->
 		<script src="assets/js/jquery.colorbox.min.js"></script>
-
+		<!-- <script src="assets/js/dropzone.min.js"></script> -->
 		<!-- <![endif]-->
 
 		<!--[if IE]>
@@ -273,7 +317,7 @@
 			 $(window).on('resize.ace.top_menu', function() {
 				$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
 			 });
-			//////
+
 				var $overflow = '';
 				var colorbox_params = {
 					rel: 'colorbox',
@@ -305,8 +349,62 @@
 				$(document).one('ajaxloadstart.page', function(e) {
 					$('#colorbox, #cboxOverlay').remove();
 			   });
+				
+			
+				$('#gallery_file_upload').ace_file_input({
+					style: 'well',
+					btn_choose: 'Drop files here or click to choose',
+					btn_change: null,
+					no_icon: 'ace-icon fa fa-cloud-upload',
+					droppable: true,
+					thumbnail: 'small'//large | fit
+					//,icon_remove:null//set null, to hide remove/reset button
+
+					,
+					preview_error : function(filename, error_code) {
+						//name of the file that failed
+
+					}
+			
+				}).on('change', function(){
+					console.log($(this));
+					console.log($(this).data('ace_input_files'));
+					console.log($(this).data('ace_input_method'));
+
+				});
+				
+				$('#save_btn').click(function(e) {
+					var title = $('#title').val();
+					var file_dom = $('#gallery_file_upload');
+					var files_data = file_dom.data('ace_input_files');
+					console.log('save btn clicked', files_data);
+					if (files_data && files_data.length > 0) {
+						var formData = new FormData();
+						formData.append('title', title);
+						formData.append('file_data', files_data[0]);
+				
+						$.ajax({
+							url: './gallery_upload_check.php',
+							data: formData,
+							type: 'POST',
+							contentType: false, 
+							processData: false,
+							success: function(res) {
+								console.log(res);
+							},
+							error: function(xhr, status, error) {
+								console.log('error', xhr, status, error);
+							}
+						});
+					} else {
+						alert('파일을 업로드하세요');
+					}
+				});
+				
 
 				/////
+
+				
 			
 			});
 		</script>
