@@ -40,6 +40,7 @@ git config --global user.name "Einstrasse"
 ## 디자인 템플릿
 https://github.com/bopoda/ace    
 http://ace.jeka.by/    
+http://summernote.org/getting-started/
 
 ## 참고 사이트
 http://nomis.tistory.com/140

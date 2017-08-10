@@ -9,3 +9,16 @@ CREATE TABLE site_user (
 
 INSERT INTO site_user (`user_id`, `password`, `username`)
 VALUES('admin', PASSWORD('bobgilgil'), '관리자');
+
+CREATE TABLE freeboard_item (
+	`item_no` INT NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(255) NOT NULL,
+	`hit` INT DEFAULT 0,
+	`update_date` Datetime,
+	`writer_id` VARCHAR(255) NOT NULL,
+	`contents` TEXT,
+	PRIMARY KEY(`item_no`)
+);
+
+CREATE TRIGGER MySQL_Table_OnInsert BEFORE INSERT ON freeboard_item FOR EACH ROW
+SET NEW.update_date = NOW();

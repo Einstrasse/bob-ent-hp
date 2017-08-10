@@ -67,94 +67,136 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-자유게시판
+자유게시판 - 글쓰기
 					<div class="page-content">
-						
-						<table id="freeboard-table" class="table table-striped table-bordered table-hover">
-							<thead>
-								<tr>
+						<div class="ace-settings-container" id="ace-settings-container">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+								<i class="ace-icon fa fa-cog bigger-130"></i>
+							</div>
 
-									<th>번호</th>
-									<th>제목</th>
-									<th class="hidden-480">조회수</th>
-
-									<th>
-										<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-										게시/수정시간
-									</th>
-									<th class="hidden-480">글쓴이</th>
-
-									<th>기능</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<tr>
-									<td>1</td>
-
-
-									<td>
-										<a href="#">[공지] 인사드립니다.</a>
-									</td>
-									<td class="hidden-480">5</td>
-									<td>2017-08-01 12:00</td>
-
-									<td class="hidden-480">
-										<span class="label label-sm label-warning">admin</span>
-									</td>
-
-									<td>
-										<div class="hidden-sm hidden-xs action-buttons">
-											<a class="green" href="#">
-												<i class="ace-icon fa fa-pencil bigger-130"></i>
-											</a>
-
-											<a class="red" href="#">
-												<i class="ace-icon fa fa-trash-o bigger-130"></i>
-											</a>
+							<div class="ace-settings-box clearfix" id="ace-settings-box">
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<div class="pull-left">
+											<select id="skin-colorpicker" class="hide">
+												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+											</select><div class="dropdown dropdown-colorpicker">		<a data-toggle="dropdown" class="dropdown-toggle"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
 										</div>
+										<span>&nbsp; Choose Skin</span>
+									</div>
 
-										<div class="hidden-md hidden-lg">
-											<div class="inline pos-rel">
-												<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-													<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-												</button>
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off">
+										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+									</div>
 
-												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-															<span class="blue">
-																<i class="ace-icon fa fa-search-plus bigger-120"></i>
-															</span>
-														</a>
-													</li>
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off">
+										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+									</div>
 
-													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-															<span class="green">
-																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-															</span>
-														</a>
-													</li>
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off">
+										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									</div>
 
-													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-															<span class="red">
-																<i class="ace-icon fa fa-trash-o bigger-120"></i>
-															</span>
-														</a>
-													</li>
-												</ul>
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off">
+										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off">
+										<label class="lbl" for="ace-settings-add-container">
+											Inside
+											<b>.container</b>
+										</label>
+									</div>
+								</div><!-- /.pull-left -->
+
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off">
+										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off">
+										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off">
+										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+									</div>
+								</div><!-- /.pull-left -->
+							</div><!-- /.ace-settings-box -->
+						</div><!-- /.ace-settings-container -->
+
+						<div class="page-header">
+							<h1>
+								새 게시글 작성
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									자유게시판에 새 게시글을 작성합니다.
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="title"> 글 제목 </label>
+
+										<div class="col-sm-9">
+											<input type="text" id="title" placeholder="제목" class="col-xs-10 col-sm-5">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 내용 </label>
+
+										<div class="col-sm-9">
+											<div id="freeboard_contents">
+												
 											</div>
 										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<hr>
-						<a href="./freeboard_write.php">
-							<button class="btn btn-primary">글쓰기</button>
-						</a>
+									</div>
+
+									<div class="space-4"></div>
+
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<div class="btn btn-warning" id="cancel_write">
+												<i class="fa fa-backward" aria-hidden="true"></i>
+												취소
+											</div>
+											<div class="btn btn-danger" id="reset_write">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												초기화
+											</div>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn btn-success" type="button" id="save_btn">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												저장
+											</button>
+											
+										</div>
+									</div>
+
+									<hr>
+	
+								</form>
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
 					</div>
 					
 <!-- 					
@@ -343,7 +385,7 @@
 			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		<script src="assets/js/bootstrap.min.js"></script>
-
+		<script src="dist/summernote.min.js"></script>
 		<!-- page specific plugin scripts -->
 
 		<!-- ace scripts -->
@@ -403,9 +445,52 @@
 			 $(window).on('resize.ace.top_menu', function() {
 				$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
 			 });
+				
+				$('#freeboard_contents').summernote({
+					height: 300,                 // set editor height
+					minHeight: 200,             // set minimum height of editor
+					maxHeight: null,             // set maximum height of editor
+					focus: false,               // set focus to editable area after initializing summernote
+					lang: 'ko-KR'
+				});
 			
+				$('#save_btn').click(function(e) {
+					var title = $('#title').val();
+					var contents = $('#freeboard_contents').summernote('code');
+					
+					console.log(title);
+					console.log(contents);
+					post_to_url('./freeboard_write_check.php', {
+						title: title,
+						contents: contents
+					}, 'POST');
+					
+				});
 			
 			});
+			
+			$('#cancel_write').click(function(e) {
+				var accept = window.confirm('정말로 작성하던 글을 포기하고 이전 페이지로 넘어가시겠습니까?');
+				if (accept === true) {
+					location.href='./freeboard.php';
+					// history.go(-1);
+				} else {
+					e.stopPropagation();
+					return;
+				}
+			})
+
+			$('#reset_write').click(function(e) {
+				var accept = window.confirm('정말로 작성하신 글을 모두 지우시겠습니까?');
+				if (accept) {
+					$('#title').val('');
+					$('#freeboard_contents').summernote('code', '');
+				} else {
+					e.stopPropagation();
+					return;
+				}		
+			});
+		
 		</script>
 	</body>
 </html>
