@@ -344,6 +344,24 @@
 					fetch_data((page-1)*window.num_per_page, window.num_per_page);
 					// console.log(page);
 				});
+				$(document).on('click', '.green', function(e) {
+					var dom = $(this);
+					var row = dom.parent().parent().parent();
+					var no = row.find('td:first-child').text();
+					location.href="./freeboard_modify.php?no=" + no;
+				});
+				
+				$(document).on('click', '.red', function(e) {
+					var accept = window.confirm('정말로 이 글을 삭제하시겠습니까?');
+					if (accept) {
+						var dom = $(this);
+						var row = dom.parent().parent().parent();
+						var no = row.find('td:first-child').text();
+						location.href="./freeboard_delete_check.php?no=" + no;	
+					} else {
+						return;
+					}
+				});
 			});
 		</script>
 	</body>
