@@ -67,7 +67,7 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-					회사 메인 페이지
+스크린샷 겔러리
 <!-- 					
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
@@ -227,7 +227,7 @@
 					 -->
 					
 				</div>
-			</div>
+			</div><!-- /.main-content -->
 
 			<div class="footer">
 				<?php
