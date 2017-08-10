@@ -11,6 +11,9 @@
 	</head>
 
 	<body class="login-layout">
+		<?php 
+			include_once("./include/no_logined.php");
+		?>
 		<div class="main-container">
 			<div class="main-content">
 				<div class="row">
@@ -42,14 +45,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="아이디" />
+															<input id="login_user_id" type="text" class="form-control" placeholder="아이디" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="패스워드" />
+															<input id="login_user_pw" type="password" class="form-control" placeholder="패스워드" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -62,7 +65,7 @@
 															<span class="lbl"> Remember Me</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button id="login_btn" type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
 															<span class="bigger-110">Login</span>
 														</button>
@@ -157,38 +160,37 @@
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="ace-icon fa fa-users blue"></i>
-												New User Registration
+												신규 유저 회원가입
 											</h4>
 
 											<div class="space-6"></div>
-											<p> Enter your details to begin: </p>
+											<p> 회원가입을 해주세요: </p>
 
 											<form>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input id="register_user_id" type="text" class="form-control" placeholder="유저 아이디" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input id="register_user_name" type="email" class="form-control" placeholder="유저 이름" />
 															<i class="ace-icon fa fa-envelope"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input id="register_pw" type="password" class="form-control" placeholder="비밀번호" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+															<input id="register_pw2" type="password" class="form-control" placeholder="비밀번호 확인" />
 															<i class="ace-icon fa fa-retweet"></i>
 														</span>
 													</label>
@@ -206,11 +208,11 @@
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="ace-icon fa fa-refresh"></i>
-															<span class="bigger-110">Reset</span>
+															<span class="bigger-110">초기화</span>
 														</button>
 
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															<span class="bigger-110">Register</span>
+														<button id="register_btn" type="button" class="width-65 pull-right btn btn-sm btn-success">
+															<span class="bigger-110">회원가입</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
 														</button>
@@ -300,6 +302,52 @@
 				e.preventDefault();
 			 });
 			 
+			});
+			
+
+			
+			$('#login_btn').click(function(e) {
+				var user_id = $('#login_user_id').val();
+				var user_pw = $('#login_user_pw').val();
+				post_to_url('./login_check.php', {
+					id: user_id,
+					pw: user_pw
+				}, 'POST');
+			});
+			
+			$('#register_btn').click(function(e) {
+				var user_id = $('#register_user_id').val();
+				var user_name = $('#register_user_name').val();
+				var pw = $('#register_pw').val();
+				var pw2 = $('#register_pw2').val();
+				
+				console.log(user_id);
+				console.log(user_name);
+				console.log(pw);
+				console.log(pw2);
+				if (!user_id) {
+					alert('아이디를 입력해주세요');
+					return;
+				}
+				if (!user_name) {
+					alert('이름을 입력해주세요');
+					return;
+				}
+				if (!pw && !pw2) {
+					alert('패스워드를 입력해주세요');
+					return;
+				}
+				if (pw !== pw2) {
+					alert('패스워드와 패스워드 확인이 값이 다릅니다.');
+					return;
+				}
+				
+				post_to_url('./register_check.php', {
+					user_id: user_id,
+					user_name: user_name,
+					password: pw
+				}, 'POST');
+				
 			});
 		</script>
 	</body>
