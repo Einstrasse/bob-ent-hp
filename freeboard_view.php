@@ -192,6 +192,7 @@
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="main-container ace-save-state container">
+									<input type="hidden" id="item_no" data-no="<?= $row['item_no'] ?>">
 									<h2>
 										[#<?= $row['item_no'] ?>] <?= $row['title'] ?>
 									</h2>
@@ -213,6 +214,12 @@
 										<hr>
 										<button class="btn" onclick="history.go(-1);">
 											목록
+										</button>
+										<button class="btn btn-warning">
+											수정
+										</button>
+										<button class="btn btn-danger" id="btn_del">
+											삭제
 										</button>
 								</div>
 								
@@ -474,6 +481,16 @@
 					maxHeight: null,             // set maximum height of editor
 					focus: false,               // set focus to editable area after initializing summernote
 					lang: 'ko-KR'
+				});
+				
+				$('#btn_del').click(function() {
+					var accept = window.confirm('정말로 게시글을 삭제하시겠습니까?');
+					if (accept === true) {
+						var item_no = $('#item_no').data('no');
+						post_to_url('./freeboard_delete_check.php', {
+							'no': item_no
+						}, 'GET');
+					}
 				});
 			
 			
