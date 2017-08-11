@@ -385,9 +385,13 @@
 							contentType: false, 
 							processData: false,
 							success: function(res) {
-								console.log(res);
+								if (res.message) {
+									alert(res.message);
+									location.href = './gallery.php';
+								}
 							},
 							error: function(xhr, status, error) {
+								alert(error);
 								console.log('error', xhr, status, error);
 							}
 						});

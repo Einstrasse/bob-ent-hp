@@ -1,7 +1,7 @@
 <?php
 	include_once('./include/no_not_logined.php');
 	include_once('./include/db_conn.php');
-
+	header("Content-Type: application/json; charset=UTF-8");
 	if (isset($_POST['title'])) {
 		//echo $_POST['title'];
 		$title = $_POST['title'];
@@ -23,18 +23,14 @@
 		$sql = "INSERT INTO file_data (`file_name`, `saved_path`, `file_ext`, `upload_date`, `uploader_id`, `title`) VALUES('".$file_name."', '".$save_path."', '".$file_ext."', NOW(), '".$uploader_id."', '".$title."')";
 		mysql_query($sql) or die('DB query error');
 		
-		?>
-<html>
-	<meta charset="utf-8">
-	<script>
-		alert('스크린샷 파일 업로드 성공');
-		location.href="./gallery.php";
-	</script>
-</html>
-		<?php
+		$res = array('message' => '갤러리 업로드가 성공했습니다.');
+		echo json_encode($res, JSON_UNESCAPED_UNICODE);
 		exit();
 		
+		
 	} else {
-		echo "title is not set";
+		$res = array('message' => '제목이 없습니다.');
+		echo json_encode($res, JSON_UNESCAPED_UNICODE);
+		exit();
 	}
 ?>
