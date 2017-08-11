@@ -4,7 +4,7 @@
 	header("Content-Type: text/html; charset=UTF-8");
 	if(isset($_GET['no'])) {
 		$writer_id=$_SESSION['id'];
-		$sql = "DELETE FROM freeboard_item WHERE `writer_id`='".$writer_id."' AND `item_no`=".$_GET['no'];
+		$sql = "DELETE FROM freeboard_item WHERE (`writer_id`='".$writer_id."' OR 'admin'='".$writer_id."') AND `item_no`=".$_GET['no'];
 		mysql_query($sql) or die('DB error');
 		
 		?>
