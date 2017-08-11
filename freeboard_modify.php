@@ -527,7 +527,7 @@
 			window.cached = {
 				no: <?= $row['item_no'] ?>,
 				title: '<?= $row['title'] ?>',
-				contents: '<?= $row['contents'] ?>'
+				contents: '<?= addslashes($row['contents']) ?>'
 			};
 			
 			$('#freeboard_contents').summernote('code', window.cached.contents);
