@@ -321,10 +321,6 @@
 				var pw = $('#register_pw').val();
 				var pw2 = $('#register_pw2').val();
 				
-				console.log(user_id);
-				console.log(user_name);
-				console.log(pw);
-				console.log(pw2);
 				if (!user_id) {
 					alert('아이디를 입력해주세요');
 					return;
@@ -348,6 +344,40 @@
 					password: pw
 				}, 'POST');
 				
+			});
+			
+			$('#login_user_id').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#login_user_pw').focus();
+				}
+			});
+			
+			$('#login_user_pw').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#login_btn').click();
+				}
+			});
+			
+			$('#register_user_id').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#register_user_name').focus();
+				}
+			});
+			$('#register_user_name').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#register_pw').focus();
+				}
+			});
+			
+			$('#register_pw').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#register_pw2').focus();
+				}
+			});
+			$('#register_pw2').keydown(function(e) {
+				if (e && e.keyCode === 13) {
+					$('#register_btn').click();
+				}
 			});
 		</script>
 	</body>

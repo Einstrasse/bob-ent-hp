@@ -54,7 +54,7 @@
 								<div>
 									<ul class="ace-thumbnails clearfix">
 										<?php
-										$sql = "SELECT `title`, `saved_path` FROM file_data ORDER BY `file_no` DESC";
+										$sql = "SELECT `title`, `saved_path`, `file_no` FROM file_data ORDER BY `file_no` DESC";
 										$result = mysql_query($sql);
 										
 										while($row = mysql_fetch_array($result)) {
@@ -69,6 +69,7 @@
 											</a>
 
 											<div class="tools tools-bottom">
+<!-- 												
 												<a href="#">
 													<i class="ace-icon fa fa-link"></i>
 												</a>
@@ -80,10 +81,10 @@
 												<a href="#">
 													<i class="ace-icon fa fa-pencil"></i>
 												</a>
-
-												<a href="#">
-													<i class="ace-icon fa fa-times red"></i>
-												</a>
+ -->
+													<a href="#" data-no="<?= $row['file_no'] ?>" class="delete_gallery">
+														<i class="ace-icon fa fa-times red"></i>
+													</a>
 											</div>
 										</li>
 										
@@ -224,6 +225,14 @@
 				$(document).one('ajaxloadstart.page', function(e) {
 					$('#colorbox, #cboxOverlay').remove();
 			   });
+				
+				$(document).on('click', '.delete_gallery', function(e) {
+					var accept = window.confirm('사진을 정말로 삭제하시겠습니까?');
+					var no = $(this).data('no');
+					if (accept === true) {
+						location.href="./gallery_delete_check.php?no=" + no;
+					}
+				});
 
 				/////
 			
