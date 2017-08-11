@@ -3,6 +3,11 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<style>
+		.mySlides {display:none;}
+		</style>
 		<title>BoB Ent.</title>
 		<?php
 			include_once('./include/no_not_logined.php');
@@ -25,37 +30,6 @@
 				<script type="text/javascript">
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
-<!-- 
-				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
-						</button>
-
-						<button class="btn btn-info">
-							<i class="ace-icon fa fa-pencil"></i>
-						</button>
-
-						<button class="btn btn-warning">
-							<i class="ace-icon fa fa-users"></i>
-						</button>
-
-						<button class="btn btn-danger">
-							<i class="ace-icon fa fa-cogs"></i>
-						</button>
-					</div>
-
-					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-						<span class="btn btn-success"></span>
-
-						<span class="btn btn-info"></span>
-
-						<span class="btn btn-warning"></span>
-
-						<span class="btn btn-danger"></span>
-					</div>
-				</div>
-				 -->
 
 				<!-- main_nav_menu.php -->
 				<?php 
@@ -67,165 +41,33 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-					회사 메인 페이지
-<!-- 					
 					<div class="page-content">
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
-
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; Choose Skin</span>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-								</div>
-
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-									</div>
-								</div>
-							</div>
-						</div>
-
 						<div class="page-header">
 							<h1>
-								Top Menu Style
+								BoB 엔터에 오신 것을 환영합니다.
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									top menu &amp; navigation
+									BoB 엔터테인먼트의 공식 홈페이지입니다.
 								</small>
 							</h1>
 						</div>
-
 						<div class="row">
 							<div class="col-xs-12">
-		
-								<div class="alert alert-info visible-sm visible-xs">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-									Please note that
-									<span class="blue bolder">top menu style</span>
-									is visible only in devices larger than
-									<span class="blue bolder">991px</span>
-									which you can change using CSS builder tool.
-								</div>
 
-								<div class="well well-sm visible-sm visible-xs">
-									Top menu can become any of the 3 mobile view menu styles:
-									<em>default</em>
-,
-									<em>collapsible</em>
-									or
-									<em>minimized</em>.
+								<div class="w3-content w3-section" style="width: 70%;">
+									<img class="mySlides w3-animate-right" src="./img/01-dungeonanddragon.jpg" style="width:100%">
+									<img class="mySlides w3-animate-left" src="./img/02-fortress.jpg" style="width:100%">
+									<img class="mySlides w3-animate-right" src="./img/03-lastmanstanding.jpg" style="width:100%">
+									<img class="mySlides w3-animate-left" src="./img/04-left4dead.jpg" style="width:100%">
+									<img class="mySlides w3-animate-right" src="./img/05-outpostonline.jpg" style="width:100%">
+									<img class="mySlides w3-animate-left" src="./img/06-pangpangterrible.jpg" style="width:100%">
+									<img class="mySlides w3-animate-right" src="./img/07-portal.jpg" style="width:100%">
+									<img class="mySlides w3-animate-left" src="./img/08-sergeant.jpg" style="width:100%">
 								</div>
-
-								<div class="hidden-sm hidden-xs">
-									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
-										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
-										Collapse/Expand Menu
-									</button>
-								</div>
-
-								<div class="center">
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-								</div>
-
 								
 							</div>
 						</div>
-					</div>
-					 -->
-					
+					</div>	
 				</div>
 			</div>
 
@@ -317,6 +159,25 @@
 			
 			
 			});
+			
+			//dddddddddddddddddddddddddddddd
+			var myIndex = 0;
+
+			function carousel() {
+				var i;
+				var x = document.getElementsByClassName("mySlides");
+				for (i = 0; i < x.length; i++) {
+				  x[i].style.display = "none";  
+				}
+				myIndex++;
+				if (myIndex > x.length) {myIndex = 1}    
+				x[myIndex-1].style.display = "block";  
+				setTimeout(carousel, 2500);    
+			}
+			carousel();
+			//dddddddddddddddddddddddddddddd
 		</script>
+		
+
 	</body>
 </html>

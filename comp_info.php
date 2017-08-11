@@ -67,164 +67,43 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-회사 소개 페이지
-<!-- 					
 					<div class="page-content">
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
-
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; Choose Skin</span>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-								</div>
-
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-									</div>
-								</div>
-							</div>
-						</div>
-
 						<div class="page-header">
 							<h1>
-								Top Menu Style
+								회사 소개
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									top menu &amp; navigation
+									BoB Entertainment와 그 서비스들을 소개합니다.
 								</small>
 							</h1>
 						</div>
+						<img src="./img/logo_md.png" alt="회사로고" style="float: left;padding-right: 27px;"/> 
+						<h1>
+						BoB 엔터테인먼트, 최고를 꿈꾸다
+						</h1>
+						<p class="lead">
+							Best of the Best Entertainment, 줄여서 BoB 엔터테인먼트는 세계 최고의 게임 개발, 운영사를 꿈꾸고 있습니다.
+							BoB Entertainment는 막강한 자본력과 기술력을 앞세워 PC, 모바일 게임시장에 진출한 외국게임에 대항하고 민족의 문화 창작 능력을 증진하고 우리민족의 뛰어난 문화역량을 발휘하여 전 세계에 우리의 우수한 문화역량 과시를 그 목표로 열심히 노를 젓고 있습니다.
+						</p>
+						
+						<h2>
+							BoB의 비전
+						</h2>
+						<p class="lead">
+							BoB 엔터테인먼트의 비전은 "Dive into the World" 입니다. 국내 시장에서 시작해서 세계속의 BoB Ent, 세계속의 기업으로 나아가기 위한 노력들을 하고 있습니다.<br><br>
 
-						<div class="row">
-							<div class="col-xs-12">
-		
-								<div class="alert alert-info visible-sm visible-xs">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-									Please note that
-									<span class="blue bolder">top menu style</span>
-									is visible only in devices larger than
-									<span class="blue bolder">991px</span>
-									which you can change using CSS builder tool.
-								</div>
-
-								<div class="well well-sm visible-sm visible-xs">
-									Top menu can become any of the 3 mobile view menu styles:
-									<em>default</em>
-,
-									<em>collapsible</em>
-									or
-									<em>minimized</em>.
-								</div>
-
-								<div class="hidden-sm hidden-xs">
-									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
-										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
-										Collapse/Expand Menu
-									</button>
-								</div>
-
-								<div class="center">
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-								</div>
-
-								
-							</div>
-						</div>
+									1) Better: 더 나은 서비스를 추구하는 기업<br>
+									2) Open-minded: 열린 마음으로 사용자와 소통하는 기업<br>
+									3) Bright: 게임 산업의 미래를 밝게 비추는 기업<br>
+						</p>
+						<img src="./img/janghere.jpg" style="float: right;"/>
+						<h1>
+							대표이사 인사말
+						</h1>
+						<p class="lead">
+							안녕하십니까 BoB 엔터테인먼트의 대표이사 장그래입니다. 일개 고졸 개발자에서 지금 BoB 엔터테인먼트의 CEO가 되기까지, 험난하고 굴곡이 많은 길을 걸어왔습니다. 어렸을때 해 오던 수 많은 게임들이 저에게 모티베이션이 되어 지금의 자리에 있게 해주었습니다. 저는 이제 지금까지 제가 쌓아온 것들을 디딤돌 삼아, 세계속의 BoB 엔터, 세계속의 한국을 보여줄 수 있는 최고의 게임 서비스 개발 및 서비스 회사가 되고자 합니다.
+						</p>
 					</div>
-					 -->
 					
 				</div>
 			</div><!-- /.main-content -->

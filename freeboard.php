@@ -67,8 +67,16 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-자유게시판
 					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								자유게시판
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									회원들이 자유롭게 글을 올릴 수 있는 게시판입니다.
+								</small>
+							</h1>
+						</div>
 						
 						<table id="freeboard-table" class="table table-striped table-bordered table-hover">
 							<thead>
