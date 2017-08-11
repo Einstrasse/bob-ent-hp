@@ -14,14 +14,6 @@ sudo apt-get install -y mysql-server mysql-client
 sudo apt-get install -y php5.6
 sudo apt-get install -y php5.6-mysql
 sudo apt-get install -y libapache2-mod-php5.6
-#sudo apt-get install -y php7.0
-#sudo apt-get install -y libapache2-mod-php7.0
-#sudo apt-get install -y php7.0-mysql
-#sudo apt-get install php5 php5-common
-#sudo apt-get install -y libapache2-mod-php5
-#sudo apt-get install php5-mysql
-#sudo add-apt-repository ppa:nijel/phpmyadmin
-#sudo apt-get update sudo apt-get install phpmyadmin 
 ```
 
 ## 기타 설정 시 유용한 커맨드들
