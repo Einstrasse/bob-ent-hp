@@ -45,23 +45,7 @@
 
 						<b class="arrow"></b>
 					</li>
-<!-- 
-					<li class="hover">
-						<a href="calendar.html">
-							<i class="menu-icon fa fa-calendar"></i>
 
-							<span class="menu-text">
-								Calendar
-
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-								</span>
-							</span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
- -->
 					
 					<li class="hover <?php
 							   if ($current_file_name == 'gallery.php' || $current_file_name == 'gallery_upload.php') {
@@ -76,6 +60,7 @@
 						<b class="arrow"></b>
 					</li>
 
+<!-- 					
 					<li class="hover">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-tag"></i>
@@ -223,4 +208,6 @@
 							</li>
 						</ul>
 					</li>
+					 -->
+					
 				</ul>
