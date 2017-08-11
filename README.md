@@ -37,6 +37,12 @@ git config --global user.email "hg9587@naver.com"
 git config --global user.name "Einstrasse"
 ```
 
+db 덤프 추출
+
+```
+mysqldump -uroot -p bob_ent > dbdump.sql
+```
+
 ## 디자인 템플릿
 https://github.com/bopoda/ace    
 http://ace.jeka.by/    
