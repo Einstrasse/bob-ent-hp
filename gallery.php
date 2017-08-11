@@ -179,6 +179,12 @@
 										</li>
 									</ul>
 								</div><!-- PAGE CONTENT ENDS -->
+								<hr>
+								<a href="./gallery_upload.php">
+									<div class="btn btn-info">
+										스크린샷 등록
+									</div>
+								</a>
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div>

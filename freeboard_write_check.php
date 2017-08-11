@@ -9,8 +9,7 @@
 		$title=$_POST['title'];
 		$contents=addslashes($_POST['contents']);
 		
-		$sql="INSERT INTO `freeboard_item` (`title`, `writer_id`, `contents`) VALUES('".$title."', '".$writer_id."', '".$contents."')";
-		
+		$sql="INSERT INTO `freeboard_item` (`title`, `writer_id`, `contents`, `update_date`) VALUES('".$title."', '".$writer_id."', '".$contents."', NOW())";
 		mysql_query($sql) or die('글 등록 실패');
 		?>
 		<html>

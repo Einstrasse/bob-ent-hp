@@ -14,7 +14,7 @@
 		$limit=$_GET['limit'];
 	}
 
-	$sql= 'SELECT `item_no`, `title`, `hit`, `update_date`, `writer_id` FROM freeboard_item LIMIT '.$skip.', '.$limit.';';
+	$sql= 'SELECT `item_no`, `title`, `hit`, `update_date`, `writer_id` FROM freeboard_item ORDER BY `update_date` DESC LIMIT '.$skip.', '.$limit.';';
 	$return_arr = array();
 
 	$fetch = mysql_query($sql); 

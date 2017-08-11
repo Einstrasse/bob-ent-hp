@@ -10,6 +10,7 @@ CREATE TABLE site_user (
 INSERT INTO site_user (`user_id`, `password`, `username`)
 VALUES('admin', PASSWORD('bobgilgil'), '관리자');
 
+
 CREATE TABLE freeboard_item (
 	`item_no` INT NOT NULL AUTO_INCREMENT,
 	`title` VARCHAR(255) NOT NULL,
@@ -20,5 +21,13 @@ CREATE TABLE freeboard_item (
 	PRIMARY KEY(`item_no`)
 );
 
-CREATE TRIGGER MySQL_Table_OnInsert BEFORE INSERT ON freeboard_item FOR EACH ROW
-SET NEW.update_date = NOW();
+CREATE TABLE file_data (
+	`file_no` INT NOT NULL AUTO_INCREMENT,
+	`file_name` VARCHAR(255) NOT NULL,
+	`saved_path` VARCHAR(255) NOT NULL,
+	`file_ext` VARCHAR(32) DEFAULT "",
+	`upload_date` Datetime,
+	`uploader_id` VARCHAR(255) NOT NULL,
+	`title` VARCHAR(255),
+	PRIMARY KEY(`file_no`)
+);

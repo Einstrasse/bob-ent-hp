@@ -205,11 +205,6 @@
 												<i class="fa fa-backward" aria-hidden="true"></i>
 												취소
 											</div>
-											<div class="btn btn-danger" id="reset_write">
-												<i class="ace-icon fa fa-undo bigger-110"></i>
-												초기화
-											</div>
-
 											&nbsp; &nbsp; &nbsp;
 											<button class="btn btn-success" type="button" id="save_btn">
 												<i class="ace-icon fa fa-check bigger-110"></i>
@@ -401,6 +396,13 @@
 					}
 				});
 				
+				$('#cancel_write').click(function(e) {
+					var accept = window.confirm('파일 업로드를 취소하고 이전 페이지로 돌아가시겠습니까?');
+					if (accept) {
+						location.href="./gallery.php";
+					}
+				});
+							
 
 				/////
 

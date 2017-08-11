@@ -9,8 +9,8 @@
 		$title=$_POST['title'];
 		$contents=addslashes($_POST['contents']);
 		
-		$sql="UPDATE freeboard_item SET `title` = '".$title."', `contents` = '".$contents."' WHERE `item_no`=".$item_no;
-		echo htmlspecialchars($sql);
+		$sql="UPDATE freeboard_item SET `title` = '".$title."', `contents` = '".$contents."', `update_date`=NOW() WHERE `item_no`=".$item_no;
+		//echo htmlspecialchars($sql);
 		mysql_query($sql) or die('글 수정 실패');
 		?>
 		<html>
