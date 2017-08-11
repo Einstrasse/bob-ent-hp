@@ -17,10 +17,11 @@
 		$file_ext = strtolower($file_ext);
 		$time_stamp = microtime();
 		$hash_val=hash('sha256', $time_stamp);
-		$save_path = "$cwd/$uploads_dir/$hash_val.$file_ext";
+		$abs_save_path = "$cwd/$uploads_dir/$hash_val.$file_ext";
+		$relative_save_path = "./$uploads_dir/$hash_val.$file_ext";
 		$uploader_id = $_SESSION['id'];
-		move_uploaded_file($tmp_path, $save_path);
-		$sql = "INSERT INTO file_data (`file_name`, `saved_path`, `file_ext`, `upload_date`, `uploader_id`, `title`) VALUES('".$file_name."', '".$save_path."', '".$file_ext."', NOW(), '".$uploader_id."', '".$title."')";
+		move_uploaded_file($tmp_path, $abs_save_path);
+		$sql = "INSERT INTO file_data (`file_name`, `saved_path`, `file_ext`, `upload_date`, `uploader_id`, `title`) VALUES('".$file_name."', '".$relative_save_path."', '".$file_ext."', NOW(), '".$uploader_id."', '".$title."')";
 		mysql_query($sql) or die('DB query error');
 		
 		$res = array('message' => '갤러리 업로드가 성공했습니다.');

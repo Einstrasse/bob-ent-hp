@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<title>BoB Ent.</title>
 		<?php
-			include_once('./include/no_not_logined.php');
+			include_once('./include/db_conn.php');
 			include_once('./templates/dependencies.php');
 		?>
 		
@@ -25,39 +25,7 @@
 				<script type="text/javascript">
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
-<!-- 
-				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
-						</button>
 
-						<button class="btn btn-info">
-							<i class="ace-icon fa fa-pencil"></i>
-						</button>
-
-						<button class="btn btn-warning">
-							<i class="ace-icon fa fa-users"></i>
-						</button>
-
-						<button class="btn btn-danger">
-							<i class="ace-icon fa fa-cogs"></i>
-						</button>
-					</div>
-
-					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-						<span class="btn btn-success"></span>
-
-						<span class="btn btn-info"></span>
-
-						<span class="btn btn-warning"></span>
-
-						<span class="btn btn-danger"></span>
-					</div>
-				</div>
-				 -->
-
-				<!-- main_nav_menu.php -->
 				<?php 
 					
 					include_once("./templates/main_nav_menu.php");
@@ -151,11 +119,18 @@
 								<!-- PAGE CONTENT BEGINS -->
 								<div>
 									<ul class="ace-thumbnails clearfix">
+										<?php
+										$sql = "SELECT `title`, `saved_path` FROM file_data ORDER BY `file_no` DESC";
+										$result = mysql_query($sql);
+										
+										while($row = mysql_fetch_array($result)) {
+											?>
+											
 										<li>
-											<a href="assets/images/gallery/image-3.jpg" data-rel="colorbox" class="cboxElement">
-												<img width="150" height="150" alt="150x150" src="assets/images/gallery/thumb-3.jpg">
+											<a href="<?= $row['saved_path'] ?>" data-rel="colorbox" class="cboxElement" style="min-width:150px; min-height:150px;">
+												<img width="150" height="150" alt="150x150" src="<?= $row['saved_path'] ?>">
 												<div class="text">
-													<div class="inner">스크린샷</div>
+													<div class="inner"><?= $row['title'] ?></div>
 												</div>
 											</a>
 
@@ -177,6 +152,10 @@
 												</a>
 											</div>
 										</li>
+										
+											<?php
+										}
+										?>
 									</ul>
 								</div><!-- PAGE CONTENT ENDS -->
 								<hr>
