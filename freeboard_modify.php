@@ -523,12 +523,12 @@
 					return;
 				}
 			})
+			<?php
+				$obj = array('no'=> $row['item_no'], 'title'=> $row['title'], 'contents'=> $row['contents'] );
+			?>
 			
-			window.cached = {
-				no: <?= $row['item_no'] ?>,
-				title: '<?= $row['title'] ?>',
-				contents: '<?= addslashes($row['contents']) ?>'
-			};
+			window.cached = <?= json_encode($obj) ?>;
+
 			
 			$('#freeboard_contents').summernote('code', window.cached.contents);
 
